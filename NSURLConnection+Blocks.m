@@ -16,7 +16,7 @@ static NSMutableData *webData;
 
 #pragma mark - Public Methods
 
-+(NSURLConnection*)connectionWithRequest:(NSURLRequest*)request onCompletion:(CompletionBlock)completionBlock onFail:(FailBlock)failBlock
++ (NSURLConnection*)connectionWithRequest:(NSURLRequest*)request onCompletion:(CompletionBlock)completionBlock onFail:(FailBlock)failBlock
 {
     _cleanBlock = [^{
         [_failBlock autorelease];
@@ -38,25 +38,26 @@ static NSMutableData *webData;
 
 #pragma mark - NSURLConnectionDelegate Implementation
 
-+(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
++ (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     _failBlock(error);
     _cleanBlock();
 }
 
-+(void)connectionDidFinishLoading:(NSURLConnection *)connection
++ (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     _completionBlock([NSData dataWithData:webData]);
     _cleanBlock();
 }
 
-+(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
++ (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {    
     webData = [[NSMutableData dataWithLength:1024] retain];
 	[webData setLength: 0];
 }
 
-+(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
++ (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
 	[webData appendData:data];
 }
 

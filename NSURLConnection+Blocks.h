@@ -11,6 +11,24 @@ typedef void(^CompletionBlock)(NSData *data);
 typedef void(^FailBlock)(NSError *error);
 typedef void(^CleanBlock)();
 
+/**
+  
+ Instead of calling:
+ 
+ [NSURLConnection connectionWithRequest:aRequest delegate:self];
+ 
+ You can instead call: 
+ 
+ [NSURLConnection connectionWithRequest:urlRequest onCompletion:^(NSData* data)
+ {
+    // Success case
+ } onFail:^ (NSError *error){
+    // Fail case
+ 
+ }];
+
+ This allow a much cleaner solution and less code.
+ **/
 @interface NSURLConnection (NSURLConnection_Blocks)
 
 /**
