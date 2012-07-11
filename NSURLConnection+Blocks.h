@@ -12,12 +12,11 @@ typedef void(^FailBlock)(NSError *error);
 typedef void(^CleanBlock)();
 
 /**
-  
  Instead of calling:
  
  [NSURLConnection connectionWithRequest:aRequest delegate:self];
  
- You can instead call: 
+ You can call: 
  
  [NSURLConnection connectionWithRequest:urlRequest onCompletion:^(NSData* data)
  {
