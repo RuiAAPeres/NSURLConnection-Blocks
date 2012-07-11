@@ -1,6 +1,5 @@
 //
 //  NSURLRequest+NSURLRequest_Blocks.m
-//  Black Magic
 //
 //  Created by Rui Peres on 7/11/12.
 //
