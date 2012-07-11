@@ -1,6 +1,5 @@
 //
 //  NSURLRequest+NSURLRequest_Blocks.h
-//  Black Magic
 //
 //  Created by Rui Peres on 7/11/12.
 //
@@ -25,8 +24,6 @@ typedef void(^CleanBlock)();
     // Fail case
  
  }];
-
- This allow a much cleaner solution and less code.
  **/
 @interface NSURLConnection (NSURLConnection_Blocks)
 
