@@ -18,14 +18,14 @@ static NSMutableData *webData;
 + (NSURLConnection*)connectionWithRequest:(NSURLRequest*)request onCompletion:(CompletionBlock)completionBlock onFail:(FailBlock)failBlock
 {
     _cleanBlock = [^{
-        [_failBlock autorelease];
-        [_completionBlock autorelease];
-        [_cleanBlock autorelease];
-        [webData autorelease];
+        _failBlock = nil;
+        _completionBlock = nil;
+        _cleanBlock = nil;
+        webData = nil;
     } copy];
     
-    [_completionBlock release];
-    [_failBlock release];
+    _completionBlock = nil;
+    _failBlock = nil;
     
     _completionBlock = [completionBlock copy];
     _failBlock = [failBlock copy];
@@ -51,7 +51,7 @@ static NSMutableData *webData;
 
 + (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {    
-    webData = [[NSMutableData dataWithLength:1024] retain];
+    webData = [NSMutableData dataWithLength:1024];
 	[webData setLength: 0];
 }
 
