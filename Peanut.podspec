@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Peanut"
   s.version      = "0.0.1"
-  s.license      = { :type => 'MIT', :file => 'License.md' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.summary      = "NSURLConnection using blocks for success and failure calls"
   s.homepage     = "https://github.com/RuiAAPeres/NSURLConnection-Blocks"
   s.author       = { "R. Peres" => "sauron.is.alive@gmail.com" }
