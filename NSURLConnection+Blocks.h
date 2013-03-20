@@ -6,8 +6,9 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^CompletionBlock)(NSData *data);
-typedef void(^FailBlock)(NSError *error);
+typedef void(^CompletionBlock)(NSData *data, NSInteger statusCode);
+typedef void(^FailBlock)(NSError *error, NSInteger statusCode);
+
 typedef void(^CleanBlock)();
 
 /**
