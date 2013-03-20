@@ -73,7 +73,6 @@ static NSInteger responseCode;
     webData = [NSMutableData dataWithLength:1024];
 	[webData setLength: 0];
 }
-}
 
 + (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
